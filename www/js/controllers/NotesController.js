@@ -1,4 +1,4 @@
-crowdNotes.controller('NotesController', function($scope, $ionicListDelegate, Items) {
+crowdNotes.controller('NotesController', function($scope, $ionicListDelegate, Items, FIREBASE_ITEMS) {
     $scope.items = Items;
     
     $scope.addItem = function(){
@@ -11,7 +11,7 @@ crowdNotes.controller('NotesController', function($scope, $ionicListDelegate, It
     };
     
     $scope.closeItem = function(item){
-        var itemsRef = new Firebase('https://crowd-notes.firebaseio.com/items/' + item.$id);
+        var itemsRef = new Firebase(FIREBASE_ITEMS + item.$id);
         itemsRef.child('status').set('closed');
         $ionicListDelegate.closeOptionButtons();
     };

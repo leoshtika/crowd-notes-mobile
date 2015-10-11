@@ -1,5 +1,8 @@
 // Crowd Notes App
-var crowdNotes = angular.module('crowdNotes', ['ionic', 'firebase']);
+var crowdNotes = angular.module('crowdNotes', ['ionic', 'firebase'])
+    .constant(
+        "FIREBASE_ITEMS", "https://crowd-notes.firebaseio.com/items/"
+    );
 
 crowdNotes.run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {

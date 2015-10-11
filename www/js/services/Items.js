@@ -1,4 +1,4 @@
-crowdNotes.factory('Items', ['$firebaseArray', function ($firebaseArray) {
-    var itemsRef = new Firebase('https://crowd-notes.firebaseio.com/items');
+crowdNotes.factory('Items', function ($firebaseArray, FIREBASE_ITEMS) {
+    var itemsRef = new Firebase(FIREBASE_ITEMS);
     return $firebaseArray(itemsRef);
-}]);
+});

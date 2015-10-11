@@ -1,12 +1,15 @@
 <ion-view view-title="Notes">
-  <ion-content class="padding">
-    <div class="list card">
-      <div class="item item-divider">Lorem Ipsum</div>
-      <div class="item item-body">
-        <div>
-          This is a <b>test</b>
-        </div>
-      </div>
-    </div>
-  </ion-content>
+    <ion-nav-buttons side="secondary">
+        <button class="button button-icon ion-android-add" ng-click="addItem()"></button>
+    </ion-nav-buttons>
+    <ion-content>
+        <ion-list>
+            <ion-item ng-repeat="item in items" ng-class="{item_closed: item.status == 'closed'}">
+                {{item.name}}
+                <ion-option-button class="button-balanced" ng-click="closeItem(item)">
+                    <i class="icon ion-checkmark"></i>
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+    </ion-content>
 </ion-view>

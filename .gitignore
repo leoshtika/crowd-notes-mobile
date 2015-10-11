@@ -13,3 +13,7 @@ nbproject
 
 # windows thumbnail cache
 Thumbs.db
+
+# Ionic
+ionic.project
+.io-config.json

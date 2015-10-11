@@ -5,8 +5,9 @@ node_modules/
 platforms/
 plugins/
 
-# netbeans project files
+# IDE and editors
 nbproject
+.editorconfig
 
 # Mac DS_Store Files
 .DS_Store

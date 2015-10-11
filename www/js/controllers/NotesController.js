@@ -5,7 +5,8 @@ crowdNotes.controller('NotesController', function($scope, $ionicListDelegate, It
         var name = prompt("what do you need");
         if (name) {
             $scope.items.$add({
-                'name': name
+                'name': name, 
+                'status': 'open'
             });
         }
     };
@@ -18,7 +19,7 @@ crowdNotes.controller('NotesController', function($scope, $ionicListDelegate, It
     
     $scope.openItem = function(item){
         var itemsRef = new Firebase(FIREBASE_ITEMS + item.$id);
-        itemsRef.child('status').set('opened');
+        itemsRef.child('status').set('open');
         $ionicListDelegate.closeOptionButtons();
     };
     

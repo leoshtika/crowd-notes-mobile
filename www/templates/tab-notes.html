@@ -6,8 +6,11 @@
         <ion-list>
             <ion-item ng-repeat="item in items" ng-class="{item_closed: item.status == 'closed'}">
                 {{item.name}}
-                <ion-option-button class="button-balanced" ng-click="closeItem(item)">
-                    <i class="icon ion-checkmark"></i>
+                <ion-option-button ng-if="item.status =='opened'" class="button-balanced" ng-click="closeItem(item)">
+                    <i class="icon ion-ios-circle-outline"></i>
+                </ion-option-button>
+                <ion-option-button ng-if="item.status =='closed'" class="button-balanced" ng-click="openItem(item)">
+                    <i class="icon ion-ios-checkmark-outline"></i>
                 </ion-option-button>
                 <ion-option-button class="button-assertive" ng-click="items.$remove(item)">
                     <i class="icon ion-trash-a"></i>

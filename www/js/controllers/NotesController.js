@@ -16,4 +16,10 @@ crowdNotes.controller('NotesController', function($scope, $ionicListDelegate, It
         $ionicListDelegate.closeOptionButtons();
     };
     
+    $scope.openItem = function(item){
+        var itemsRef = new Firebase(FIREBASE_ITEMS + item.$id);
+        itemsRef.child('status').set('opened');
+        $ionicListDelegate.closeOptionButtons();
+    };
+    
 });

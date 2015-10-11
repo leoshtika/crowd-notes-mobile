@@ -15,4 +15,5 @@ crowdNotes.controller('NotesController', function($scope, $ionicListDelegate, It
         itemsRef.child('status').set('closed');
         $ionicListDelegate.closeOptionButtons();
     };
+    
 });

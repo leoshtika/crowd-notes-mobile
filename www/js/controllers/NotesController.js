@@ -2,12 +2,12 @@ crowdNotes.controller('NotesController', function($scope, $ionicListDelegate, It
     $scope.items = Items;
     
     $scope.addItem = function(){
-        var name = prompt("what do you need");
-        if (name) {
+        if ($scope.newItem) {
             $scope.items.$add({
-                'name': name, 
+                'name': $scope.newItem,
                 'status': 'open'
             });
+            $scope.newItem = '';
         }
     };
     

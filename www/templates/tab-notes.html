@@ -1,10 +1,20 @@
 <ion-view view-title="Notes">
-    <ion-nav-buttons side="secondary">
-        <button class="button button-icon ion-android-add" ng-click="addItem()"></button>
-    </ion-nav-buttons>
-    <ion-content>
+<!--    <ion-nav-buttons side="secondary">
+        <i class="button button-icon ion-ios-search-strong"
+            ng-click="">
+        </i>
+    </ion-nav-buttons>-->
+    <div class="bar bar-subheader item-input-inset bar-light">
+        <label class="item-input-wrapper">
+            <input type="text" placeholder="New item..." ng-model="newItem">
+        </label>
+        <i class="button button-clear button-icon ion-ios-plus-outline button-balanced" role="button" 
+           ng-click="addItem()"
+           ng-if="newItem"></i>
+    </div>
+    <ion-content class="has-subheader">
         <ion-list>
-            <ion-item class="item-icon-left" ng-repeat="item in items | orderBy: '-status'" ng-class="{item_closed: item.status === 'closed'}">
+            <ion-item class="item-icon-left" ng-repeat="item in items | orderBy: ['-status','-$id']" ng-class="{item_closed: item.status === 'closed'}">
                 <i class="icon ion-ios-circle-outline" ng-click="closeItem(item)" ng-if="item.status ==='open'"></i>
                 <i class="icon ion-ios-checkmark-outline" ng-click="openItem(item)" ng-if="item.status ==='closed'"></i>
                 {{item.name}}
